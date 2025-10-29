@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edad en PHP</title>
+</head>
+<body>
+	<form method="post" action="">
+		Ingresa tu año de nacimiento: <input type="number" name="anio">
+		<input type="submit" value="Calcular Edad">
+	</form>
+
+	<?php
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$anio = intval($_POST["anio"]);
+		$edad = date("Y") - $anio;
+		echo "<p>Tienes aproximadamente $edad años.</p>";
+	}
+	?>
+</body>
+</html>

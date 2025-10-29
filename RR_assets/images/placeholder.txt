@@ -1,0 +1,4 @@
+Este directorio debe contener las imágenes mencionadas en database/RR_datos.sql.
+Agrega archivos como 'hamburguesa.jpg', 'papas.jpg', 'pechuga.jpg', etc.
+
+Por ahora se deja un placeholder. Sube imágenes reales a: RR_assets/images/

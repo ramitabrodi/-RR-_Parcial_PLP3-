@@ -1,0 +1,53 @@
+/*
+RR_estilos.css
+Diseño: mobile-first, paleta simple, layout con grid/flex
+Prefijo de clases: rr-
+Decisiones de diseño (resumen):
+- Paleta: #ff6b6b (accent), #2b2d42 (dark), #f7f7ff (bg), #ffd166 (highlight), #4ecdc4 (success)
+- Tipografía: sans-serif del sistema (clara y rápida)
+- Layout: grid para productos, aside para carrito en desktop
+*/
+
+:root{
+  --rr-accent: #ff6b6b;
+  --rr-dark: #2b2d42;
+  --rr-bg: #f7f7ff;
+  --rr-highlight: #ffd166;
+  --rr-success: #4ecdc4;
+  --rr-gap: 12px;
+  --rr-radius: 8px;
+}
+
+*{box-sizing:border-box}
+body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--rr-bg); color:var(--rr-dark); margin:0; padding:0}
+.rr-header{display:flex; justify-content:space-between; align-items:center; padding:16px; background:linear-gradient(90deg,var(--rr-accent),var(--rr-highlight)); color:white}
+.container{padding:12px; display:grid; grid-template-columns: 1fr; gap:16px}
+.filters{display:flex; gap:8px; overflow:auto; padding-bottom:8px}
+.rr-filter-btn{background:white;border:1px solid #eee;padding:6px 10px;border-radius:6px}
+.rr-products{display:grid; grid-template-columns:1fr; gap:12px}
+.rr-product-card{background:white;padding:10px;border-radius:8px;display:flex;gap:8px;align-items:center}
+.rr-product-card img{width:80px;height:80px;object-fit:cover;border-radius:6px}
+.rr-actions{margin-left:auto; display:flex; gap:8px; align-items:center}
+.rr-add-btn{background:var(--rr-accent);color:white;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
+.rr-cart-panel{background:white;padding:12px;border-radius:8px}
+
+.rr-cart-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed #eee}
+.rr-cart-item-controls{display:flex;gap:8px;align-items:center}
+.rr-cart-qty-input{width:60px}
+
+/* Desktop layout */
+@media(min-width:900px){
+  .container{grid-template-columns: 2fr 1fr; align-items:start}
+  .rr-products{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(min-width:1200px){
+  .rr-products{grid-template-columns:repeat(3,1fr)}
+}
+
+.rr-checkout-btn{background:var(--rr-success);border:none;color:var(--rr-dark);padding:10px;border-radius:6px;cursor:pointer;margin-top:8px}
+
+/* Transiciones y focus */
+.rr-add-btn, .rr-checkout-btn, .rr-filter-btn{transition:transform .12s ease, box-shadow .12s ease}
+.rr-add-btn:hover{transform:translateY(-2px)}
+.rr-filter-btn:focus, .rr-add-btn:focus, .rr-checkout-btn:focus{outline:3px solid rgba(0,0,0,0.06)}
